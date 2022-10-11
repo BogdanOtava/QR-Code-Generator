@@ -1,3 +1,4 @@
+from PIL import Image
 import qrcode
 import os
 import pathlib
@@ -18,3 +19,6 @@ file = args.name
 
 img = qrcode.make(link)
 img.save(f"{CODES}/{file}.png")
+
+show_img = Image.open(f"{CODES}/{file}.png")
+show_img.show()
