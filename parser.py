@@ -2,6 +2,10 @@ from name_randomizer import get_name
 import argparse
 
 def parse_arguments():
+    """
+    Defines the positional/required arguments and the optional arguments. Takes no parameters and returns the arguments.
+    """
+
     parser = argparse.ArgumentParser(description="Generates QR Code for the given query.", add_help=False)
     parser._action_groups.pop()
 
@@ -56,6 +60,24 @@ def parse_arguments():
         type=int,
         default=10,
         help="number of pixels each 'box' of the QR Code has"
+    )
+
+    # Optional argument for the 'fill color' of the QR Code
+    optional.add_argument(
+        "-x",
+        metavar="fill color",
+        type=str,
+        default="black",
+        help="changes the 'fill color' of the QR Code"
+    )
+
+    # Optional argument for the 'back color' of the QR Code
+    optional.add_argument(
+        "-z",
+        metavar="back color",
+        type=str,
+        default="white",
+        help="changes the 'back color' of the QR Code"
     )
 
     return parser.parse_args()
